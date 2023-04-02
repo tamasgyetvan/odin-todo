@@ -1,4 +1,10 @@
 import "./style.css";
 import Project from "./modules/Project";
 
-projectList = [];
+let projectList = [];
+
+const createProjectBtn = document.getElementById("addProjectsButton");
+
+createProjectBtn.addEventListener("click", function () {
+  console.log("Working!");
+});

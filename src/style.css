@@ -57,7 +57,8 @@
 .projectImage {
   width: 35px;
 }
-#createProjectContainer {
+
+#createProjectBtnContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,7 +68,6 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 1rem;
 }
 
 button {
