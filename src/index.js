@@ -1,4 +1,4 @@
 import "./style.css";
-import Project from "../src/modules/classList";
+import Project from "./modules/Project";
 
 projectList = [];
