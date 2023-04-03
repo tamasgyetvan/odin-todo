@@ -21,6 +21,11 @@ function createProjectButton(projectName, projectID) {
   btn.appendChild(projectPicture);
   btn.appendChild(projectHeader);
 
+  let delBtn = document.createElement("button");
+  delBtn.classList.add("deleteProjectButton");
+  delBtn.innerHTML = "X";
+
+  btn.appendChild(delBtn);
   return btn;
 }
 
