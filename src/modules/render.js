@@ -2,12 +2,12 @@ import { projectList } from "../index";
 const projectContainer = document.getElementById("projectsContainer");
 function renderProjects() {
   projectList.forEach((project) => {
-    let createdProject = createProjectButton(project.name, project.id);
+    let createdProject = createProjectButtonElement(project.name, project.id);
     projectContainer.appendChild(createdProject);
   });
 }
 
-function createProjectButton(projectName, projectID) {
+function createProjectButtonElement(projectName, projectID) {
   let btn = document.createElement("button");
   btn.classList.add("project");
   btn.setAttribute("data-ID", projectID);
