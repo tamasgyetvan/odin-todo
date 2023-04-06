@@ -1,20 +1,18 @@
 import "./style.css";
-import Project from "./modules/Project";
-import { validateProjectForm } from "./modules/formValidation";
-import { renderProjects, clearProjectsContainer } from "./modules/render";
+import { addNewProject } from "./modules/render";
 let projectList = [];
 
 const createProjectBtn = document.getElementById("addProjectsButton");
+const deleteProjectButtons = document.querySelectorAll(".deleteProjectButton");
 
 createProjectBtn.addEventListener("click", function () {
-  let projectFormValue = validateProjectForm();
-  if (projectFormValue != false) {
-    let newProject = new Project(projectFormValue);
-    projectList.push(newProject);
-    console.log(projectList);
-    clearProjectsContainer();
-    renderProjects();
-  }
+  addNewProject();
+});
+
+deleteProjectButtons.forEach((deleteProjectbtn) => {
+  deleteProjectbtn.addEventListener("click", function () {
+    console.log("test");
+  });
 });
 
 export { projectList };

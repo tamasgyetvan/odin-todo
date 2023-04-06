@@ -1,4 +1,6 @@
 import { projectList } from "../index";
+import { validateProjectForm } from "./formValidation";
+import Project from "./Project";
 const projectContainer = document.getElementById("projectsContainer");
 function renderProjects() {
   projectList.forEach((project) => {
@@ -29,7 +31,18 @@ function createProjectButtonElement(projectName, projectID) {
   return btn;
 }
 
+function addNewProject() {
+  let projectFormValue = validateProjectForm();
+  if (projectFormValue != false) {
+    let newProject = new Project(projectFormValue);
+    projectList.push(newProject);
+    console.log(projectList);
+    clearProjectsContainer();
+    renderProjects();
+  }
+}
+
 function clearProjectsContainer() {
   projectContainer.innerHTML = "";
 }
-export { renderProjects, clearProjectsContainer };
+export { renderProjects, clearProjectsContainer, addNewProject };
