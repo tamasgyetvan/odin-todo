@@ -1,12 +1,14 @@
-function validateProjectForm() {
-  let inputProjectName = document.getElementById("projectNameInput").value;
+let inputProjectName = document.getElementById("projectNameInput");
 
-  if (inputProjectName == "") {
+function validateProjectForm() {
+  if (inputProjectName.value == "") {
     alert("Project name cannot be empty");
     return false;
   } else {
-    return inputProjectName;
+    return inputProjectName.value;
   }
 }
-
-export { validateProjectForm };
+function emptyInputPlaceholder() {
+  inputProjectName.value = "";
+}
+export { validateProjectForm, emptyInputPlaceholder };
