@@ -56,6 +56,10 @@
   align-items: center;
 }
 
+.project:hover {
+  -webkit-transform: scale(1.05);
+}
+
 .projectImage {
   width: 35px;
 }
