@@ -19,8 +19,9 @@ function createProjectButtonElement(projectName, projectID) {
   let projectPicture = document.createElement("img");
   let projectHeader = document.createElement("h4");
   projectPicture.setAttribute("src", "../src/to-do-list-svgrepo-com.svg");
-  projectPicture.classList.add("projectImage");
+  projectPicture.classList.add("projectImage", "project");
   projectHeader.textContent = projectName;
+  projectHeader.classList.add("project");
 
   btn.appendChild(projectPicture);
   btn.appendChild(projectHeader);
@@ -38,10 +39,28 @@ function addNewProject() {
   if (projectFormValue != false) {
     let newProject = new Project(projectFormValue);
     projectList.push(newProject);
-    console.log(projectList);
     clearProjectsContainer();
     renderProjects();
     addEventListenerToDelBtns();
+    addEventListenerToProjectBtns();
+  }
+}
+
+function addEventListenerToProjectBtns() {
+  const projectButtons = document.querySelectorAll(".project");
+
+  projectButtons.forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      setProjectActive(e);
+    });
+  });
+}
+
+function setProjectActive(e) {
+  if (e.target.parentNode.id === "projectsContainer") {
+    e.target.classList.add("active");
+  } else {
+    e.target.parentNode.classList.add("active");
   }
 }
 
@@ -69,4 +88,9 @@ function deleteProjectFromList(arr, id) {
 function clearProjectsContainer() {
   projectContainer.innerHTML = "";
 }
-export { renderProjects, clearProjectsContainer, addNewProject };
+export {
+  renderProjects,
+  clearProjectsContainer,
+  addNewProject,
+  addEventListenerToProjectBtns,
+};
