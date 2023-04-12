@@ -1,6 +1,7 @@
 import { projectList } from "../index";
 import { validateProjectForm } from "./formValidation";
 import Project from "./Project";
+import { setProjectStatusActive } from "./Project";
 
 const projectContainer = document.getElementById("projectsContainer");
 
@@ -51,13 +52,14 @@ function addEventListenerToProjectBtns() {
 
   projectButtons.forEach((btn) => {
     btn.addEventListener("click", function (e) {
-      removeActiveProjectStatus();
-      setActiveProjectStatus(e);
+      removeActiveClassToProjectBtn();
+      addActiveClassToProjectBtn(e);
+      setProjectStatusActive();
     });
   });
 }
 
-function setActiveProjectStatus(e) {
+function addActiveClassToProjectBtn(e) {
   if (e.target.parentNode.id === "projectsContainer") {
     e.target.classList.add("active");
   } else {
@@ -65,7 +67,7 @@ function setActiveProjectStatus(e) {
   }
 }
 
-function removeActiveProjectStatus() {
+function removeActiveClassToProjectBtn() {
   const activeProject = document.querySelector(".active");
 
   if (activeProject != null) {
