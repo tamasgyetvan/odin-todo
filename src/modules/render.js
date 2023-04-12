@@ -51,16 +51,25 @@ function addEventListenerToProjectBtns() {
 
   projectButtons.forEach((btn) => {
     btn.addEventListener("click", function (e) {
-      setProjectActive(e);
+      removeActiveProjectStatus();
+      setActiveProjectStatus(e);
     });
   });
 }
 
-function setProjectActive(e) {
+function setActiveProjectStatus(e) {
   if (e.target.parentNode.id === "projectsContainer") {
     e.target.classList.add("active");
   } else {
     e.target.parentNode.classList.add("active");
+  }
+}
+
+function removeActiveProjectStatus() {
+  const activeProject = document.querySelector(".active");
+
+  if (activeProject != null) {
+    activeProject.classList.remove("active");
   }
 }
 
