@@ -1,5 +1,5 @@
 import "./style.css";
-import { addNewProject, renderProjects } from "./modules/render";
+import { addNewProject, renderProjects } from "./modules/renderProjects";
 import { emptyInputPlaceholder } from "./modules/formValidation";
 let projectList = [];
 
