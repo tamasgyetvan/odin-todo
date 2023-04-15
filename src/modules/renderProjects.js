@@ -7,15 +7,22 @@ const projectContainer = document.getElementById("projectsContainer");
 
 function renderProjects() {
   projectList.forEach((project) => {
-    let createdProject = createProjectButtonElement(project.name, project.id);
+    let createdProject = createProjectButtonElement(
+      project.name,
+      project.id,
+      project.active
+    );
     projectContainer.appendChild(createdProject);
   });
 }
 
-function createProjectButtonElement(projectName, projectID) {
+function createProjectButtonElement(projectName, projectID, activeStatus) {
   let btn = document.createElement("button");
-  btn.classList.add("project");
+  btn.classList.add("project2");
   btn.setAttribute("data-ID", projectID);
+  if (activeStatus == true) {
+    btn.classList.add("active");
+  }
 
   let projectPicture = document.createElement("img");
   let projectHeader = document.createElement("h4");
@@ -55,6 +62,7 @@ function addEventListenerToProjectBtns() {
       removeActiveClassToProjectBtn();
       addActiveClassToProjectBtn(e);
       setProjectStatusActive();
+      console.log(projectList);
     });
   });
 }
@@ -86,7 +94,6 @@ function addEventListenerToDelBtns() {
       clearProjectsContainer();
       renderProjects();
       addEventListenerToDelBtns();
-      console.log(projectList);
     });
   });
 }
