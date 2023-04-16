@@ -1,6 +1,7 @@
 import "./style.css";
 import { addNewProject, renderProjects } from "./modules/renderProjects";
 import { emptyInputPlaceholder } from "./modules/formValidation";
+import { createTaskForm, removeaddTaskBtn } from "./modules/renderTaskForm";
 let projectList = [];
 
 const createProjectBtn = document.getElementById("addProjectsButton");
@@ -9,6 +10,12 @@ createProjectBtn.addEventListener("click", function () {
   emptyInputPlaceholder();
 });
 
+const addTaskBtn = document.getElementById("addTaskButton");
+addTaskBtn.addEventListener("click", function () {
+  console.log("asd");
+  removeaddTaskBtn();
+  createTaskForm();
+});
 renderProjects();
 
 export { projectList };
