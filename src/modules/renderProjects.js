@@ -99,6 +99,10 @@ function addEventListenerToDelBtns() {
       clearProjectsContainer();
       renderProjects();
       addEventListenerToDelBtns();
+
+      if (projectList.length === 0) {
+        removeaddTaskBtn();
+      }
     });
   });
 }
