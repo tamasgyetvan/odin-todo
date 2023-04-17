@@ -2,6 +2,7 @@ import { projectList } from "../index";
 import { validateProjectForm } from "./formValidation";
 import Project from "./Project";
 import { setProjectStatusActive } from "./Project";
+import { clearTaskContainer, renderTasks } from "./renderTask";
 
 const projectContainer = document.getElementById("projectsContainer");
 
@@ -62,7 +63,8 @@ function addEventListenerToProjectBtns() {
       removeActiveClassToProjectBtn();
       addActiveClassToProjectBtn(e);
       setProjectStatusActive();
-      console.log(projectList);
+      clearTaskContainer();
+      renderTasks();
     });
   });
 }
