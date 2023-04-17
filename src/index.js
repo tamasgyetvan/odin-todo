@@ -10,12 +10,4 @@ createProjectBtn.addEventListener("click", function () {
   emptyInputPlaceholder();
 });
 
-const addTaskBtn = document.getElementById("addTaskButton");
-addTaskBtn.addEventListener("click", function () {
-  console.log("asd");
-  removeaddTaskBtn();
-  createTaskForm();
-});
-renderProjects();
-
 export { projectList };

@@ -3,6 +3,7 @@ import { validateProjectForm } from "./formValidation";
 import Project from "./Project";
 import { setProjectStatusActive } from "./Project";
 import { clearTaskContainer, renderTasks } from "./renderTask";
+import { createAddTaskBtn, removeaddTaskBtn } from "./renderTaskForm";
 
 const projectContainer = document.getElementById("projectsContainer");
 
@@ -65,6 +66,8 @@ function addEventListenerToProjectBtns() {
       setProjectStatusActive();
       clearTaskContainer();
       renderTasks();
+      removeaddTaskBtn();
+      createAddTaskBtn();
     });
   });
 }

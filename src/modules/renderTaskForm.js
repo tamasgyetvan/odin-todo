@@ -70,7 +70,10 @@ function createAddTaskBtn() {
 
 function removeaddTaskBtn() {
   const addTaskBtn = document.getElementById("addTaskButton");
-  addTaskBtn.remove();
+
+  if (addTaskBtn != null) {
+    addTaskBtn.remove();
+  }
 }
 
-export { createTaskForm, removeaddTaskBtn };
+export { createTaskForm, removeaddTaskBtn, createAddTaskBtn };
