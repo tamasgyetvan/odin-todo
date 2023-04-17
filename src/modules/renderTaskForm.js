@@ -6,6 +6,7 @@ function createTaskForm() {
 
   const input = document.createElement("input");
   input.type = "text";
+  input.setAttribute("id", "taskNameInput");
 
   const addBtn = document.createElement("btn");
   addBtn.setAttribute("id", "addTaskBtn");
@@ -18,6 +19,10 @@ function createTaskForm() {
   cancelBtn.addEventListener("click", function () {
     removeTaskForm();
     createAddTaskBtn();
+  });
+
+  addBtn.addEventListener("click", function () {
+    console.log("working");
   });
 
   formDiv.appendChild(input);

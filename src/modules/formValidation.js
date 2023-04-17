@@ -11,4 +11,5 @@ function validateProjectForm() {
 function emptyInputPlaceholder() {
   inputProjectName.value = "";
 }
+
 export { validateProjectForm, emptyInputPlaceholder };
