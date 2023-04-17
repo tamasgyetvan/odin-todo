@@ -90,6 +90,11 @@
   margin-left: auto;
 }
 
+.project2.active h4 {
+  text-decoration: underline;
+  text-decoration-thickness: 0.2rem;
+}
+
 button {
   border: none;
   background: none;
@@ -119,7 +124,6 @@ button {
 }
 
 #taskContainer {
-  border: 1px solid black;
   border-radius: 25px;
   width: 50%;
 }
