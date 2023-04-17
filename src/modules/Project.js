@@ -8,6 +8,13 @@ export default class Project {
   }
 }
 
+function getActiveProjectObject() {
+  let activeProject = document.getElementsByClassName("active");
+  let activeProjectID = activeProject[0].getAttribute("data-id");
+
+  return projectList.find((x) => x.id === activeProjectID);
+}
+
 function setProjectStatusActive() {
   const activeProjectObjectID = document
     .querySelector(".active")
@@ -26,4 +33,4 @@ function setProjectStatusActive() {
   });
 }
 
-export { setProjectStatusActive };
+export { setProjectStatusActive, getActiveProjectObject };

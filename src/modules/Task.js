@@ -1,5 +1,6 @@
 import { validateTaskForm } from "./formValidation";
 import { projectList } from "../index";
+import { getActiveProjectObject } from "./Project";
 class Task {
   constructor(name) {
     this.name = name;
@@ -16,10 +17,7 @@ function createNewTask() {
 }
 
 function addTaskToActiveProject(task) {
-  let activeProject = document.getElementsByClassName("active");
-  let activeProjectID = activeProject[0].getAttribute("data-id");
-
-  let activeObject = projectList.find((x) => x.id === activeProjectID);
+  let activeObject = getActiveProjectObject();
   activeObject["todoList"].push(task);
   console.log(activeObject["todoList"]);
 }
