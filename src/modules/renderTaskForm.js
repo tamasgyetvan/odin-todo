@@ -1,3 +1,5 @@
+import { createNewTask } from "./Task";
+
 const content = document.getElementById("content");
 
 function createTaskForm() {
@@ -23,6 +25,7 @@ function createTaskForm() {
 
   addBtn.addEventListener("click", function () {
     console.log("working");
+    createNewTask();
   });
 
   formDiv.appendChild(input);
