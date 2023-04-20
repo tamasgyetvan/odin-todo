@@ -1,7 +1,7 @@
 import { projectList } from "../index";
 import { validateProjectForm } from "./formValidation";
 import Project from "./Project";
-import { setProjectStatusActive } from "./Project";
+import { setProjectStatusActive, getActiveProjectObject } from "./Project";
 import { clearTaskContainer, renderTasks } from "./renderTask";
 import { createAddTaskBtn, removeaddTaskBtn } from "./renderTaskForm";
 
@@ -98,7 +98,17 @@ function addEventListenerToDelBtns() {
       deleteProjectFromList(projectList, targetID);
       clearProjectsContainer();
       renderProjects();
+      addEventListenerToProjectBtns();
       addEventListenerToDelBtns();
+      clearTaskContainer();
+      removeaddTaskBtn();
+
+      let activeProject = getActiveProjectObject();
+
+      if (activeProject != undefined) {
+        renderTasks();
+        createAddTaskBtn();
+      }
 
       if (projectList.length === 0) {
         removeaddTaskBtn();
