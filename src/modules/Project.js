@@ -10,19 +10,17 @@ export default class Project {
 
 function getActiveProjectObject() {
   let activeProject = document.getElementsByClassName("active");
-  let activeProjectID = activeProject[0].getAttribute("data-id");
-
-  return projectList.find((x) => x.id === activeProjectID);
+  console.log(activeProject);
+  if (activeProject.length > 0) {
+    let activeProjectID = activeProject[0].getAttribute("data-id");
+    return projectList.find((x) => x.id === activeProjectID);
+  }
 }
 
 function setProjectStatusActive() {
   const activeProjectObjectID = document
     .querySelector(".active")
     .getAttribute("data-id");
-
-  /*let activeObject = projectList.find((x) => (x.id = activeProjectObjectID)); 
-
-  activeObject.active = true;*/
 
   projectList.forEach((project) => {
     if (project.id === activeProjectObjectID) {

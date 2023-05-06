@@ -1,5 +1,4 @@
 import { validateTaskForm } from "./formValidation";
-import { projectList } from "../index";
 import { getActiveProjectObject } from "./Project";
 class Task {
   constructor(name) {
@@ -8,7 +7,7 @@ class Task {
   }
 }
 
-function createNewTask() {
+function addNewTask() {
   const taskFormValue = validateTaskForm();
   if (taskFormValue != false) {
     let newTask = new Task(taskFormValue);
@@ -22,4 +21,4 @@ function addTaskToActiveProject(task) {
   console.log(activeObject["todoList"]);
 }
 
-export { createNewTask };
+export { addNewTask };

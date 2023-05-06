@@ -6,7 +6,7 @@ import { clearTaskContainer, renderTasks } from "./renderTask";
 import { createAddTaskBtn, removeaddTaskBtn } from "./renderTaskForm";
 
 const projectContainer = document.getElementById("projectsContainer");
-
+const content = document.getElementById("content");
 function renderProjects() {
   projectList.forEach((project) => {
     let createdProject = createProjectButtonElement(
@@ -68,6 +68,8 @@ function addEventListenerToProjectBtns() {
       renderTasks();
       removeaddTaskBtn();
       createAddTaskBtn();
+      removeActiveProjectHeader();
+      renderActiveProjectHeader();
     });
   });
 }
@@ -97,21 +99,21 @@ function addEventListenerToDelBtns() {
       const targetID = e.target.parentNode.dataset.id;
       deleteProjectFromList(projectList, targetID);
       clearProjectsContainer();
+      removeActiveProjectHeader();
       renderProjects();
       addEventListenerToProjectBtns();
       addEventListenerToDelBtns();
       clearTaskContainer();
       removeaddTaskBtn();
 
-      let activeProject = getActiveProjectObject();
-
-      if (activeProject != undefined) {
-        renderTasks();
-        createAddTaskBtn();
-      }
-
       if (projectList.length === 0) {
         removeaddTaskBtn();
+      } else {
+        let activeProject = getActiveProjectObject();
+        if (activeProject != undefined) {
+          renderTasks();
+          createAddTaskBtn();
+        }
       }
     });
   });
@@ -124,6 +126,21 @@ function deleteProjectFromList(arr, id) {
 
 function clearProjectsContainer() {
   projectContainer.innerHTML = "";
+}
+
+function renderActiveProjectHeader() {
+  let header = document.createElement("h1");
+  header.setAttribute("id", "projectHeader");
+  let activeProject = getActiveProjectObject();
+  header.innerHTML = activeProject["name"];
+  content.prepend(header);
+}
+
+function removeActiveProjectHeader() {
+  const header = document.getElementById("projectHeader");
+  if (header != null) {
+    header.innerHTML = "";
+  }
 }
 export {
   renderProjects,

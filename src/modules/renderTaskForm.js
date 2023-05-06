@@ -1,4 +1,4 @@
-import { createNewTask } from "./Task";
+import { addNewTask } from "./Task";
 import { clearTaskContainer, renderTasks } from "./renderTask";
 
 const content = document.getElementById("content");
@@ -26,7 +26,7 @@ function createTaskForm() {
 
   addBtn.addEventListener("click", function () {
     console.log("working");
-    createNewTask();
+    addNewTask();
     clearTaskContainer();
     renderTasks();
     removeTaskForm();
