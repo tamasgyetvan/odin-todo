@@ -14,9 +14,13 @@ function createTaskElement(taskName, taskID) {
   taskDiv.setAttribute("class", "task");
   taskDiv.setAttribute("data-id", taskID);
 
-  let checkbox = document.createElement("div");
-  checkbox.innerHTML = "X";
-  checkbox.setAttribute("class", "checkbox");
+  let deletebutton = document.createElement("div");
+  deletebutton.innerHTML = "X";
+  deletebutton.setAttribute("class", "taskDelBtn");
+
+  deletebutton.addEventListener("click", function () {
+    console.log("Working delete task button");
+  });
 
   let tasktitle = document.createElement("h4");
   tasktitle.innerHTML = taskName;
