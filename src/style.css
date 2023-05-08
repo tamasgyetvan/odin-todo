@@ -130,9 +130,8 @@ button {
 
 .checkbox {
   background-color: red;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
+  padding: 0.2rem;
+  border-radius: 5px;
   border: 1px solid hsla(0, 0%, 100%, 0.4);
   cursor: pointer;
 }

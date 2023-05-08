@@ -15,13 +15,14 @@ function createTaskElement(taskName, taskID) {
   taskDiv.setAttribute("data-id", taskID);
 
   let checkbox = document.createElement("div");
+  checkbox.innerHTML = "X";
   checkbox.setAttribute("class", "checkbox");
 
   let tasktitle = document.createElement("h4");
   tasktitle.innerHTML = taskName;
 
-  taskDiv.appendChild(checkbox);
   taskDiv.appendChild(tasktitle);
+  taskDiv.appendChild(checkbox);
 
   taskContainer.appendChild(taskDiv);
 }
