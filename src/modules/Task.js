@@ -20,5 +20,11 @@ function addTaskToActiveProject(task) {
   activeObject["todoList"].push(task);
   console.log(activeObject["todoList"]);
 }
+function deleteTaskFromProject(activeproject, taskID) {
+  const taskToRemove = activeproject["todoList"].findIndex(
+    (task) => task.id === taskID
+  );
+  activeproject["todoList"].splice(taskToRemove, 1);
+}
 
-export { addNewTask };
+export { addNewTask, deleteTaskFromProject };

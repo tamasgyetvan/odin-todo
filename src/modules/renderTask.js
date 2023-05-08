@@ -1,4 +1,5 @@
 import { getActiveProjectObject } from "./Project";
+import { deleteTaskFromProject, getClickedTaskID } from "./Task";
 
 function renderTasks() {
   let activeProject = getActiveProjectObject();
@@ -18,15 +19,20 @@ function createTaskElement(taskName, taskID) {
   deletebutton.innerHTML = "X";
   deletebutton.setAttribute("class", "taskDelBtn");
 
-  deletebutton.addEventListener("click", function () {
-    console.log("Working delete task button");
+  deletebutton.addEventListener("click", function (e) {
+    let activeProject = getActiveProjectObject();
+    let taskID = e.target.parentNode.getAttribute("data-id");
+
+    deleteTaskFromProject(activeProject, taskID);
+    clearTaskContainer();
+    renderTasks();
   });
 
   let tasktitle = document.createElement("h4");
   tasktitle.innerHTML = taskName;
 
   taskDiv.appendChild(tasktitle);
-  taskDiv.appendChild(checkbox);
+  taskDiv.appendChild(deletebutton);
 
   taskContainer.appendChild(taskDiv);
 }
